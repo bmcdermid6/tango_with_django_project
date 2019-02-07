@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block body_block %}
-    
+    {% if user.is_authenticated %}
         <h>Add a category</h>
         <div>
             <form id="category_form" method="post" action="{% url 'add_category' %}">
@@ -23,5 +23,8 @@
                 <input type="submit" name ="submit" value="Create Category" />
             </form>
         </div>
+    {% else %}
+        You don't have access to this page, please login or create an account to add a category.
+    {% endif %}
         
 {% endblock %}

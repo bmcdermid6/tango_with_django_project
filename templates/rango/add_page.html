@@ -7,6 +7,7 @@
 {% endblock %}
     
 {% block body_block %}
+{% if user.is_authenticated %}
     {% if category %}    
         
         <div>
@@ -26,5 +27,8 @@
      {% else %}
          The specified category does not exist!
      {% endif %}
+{% else %}
+    You don't have access to this page, please login or create an account to add a page.
+{% endif %}
 
 {% endblock %}
